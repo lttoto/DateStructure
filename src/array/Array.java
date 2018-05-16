@@ -66,6 +66,14 @@ public class Array<E> {
         return data[index];
     }
 
+    public E getFirst() {
+        return get(size - 1);
+    }
+
+    public E getLast() {
+        return get(0);
+    }
+
     void set(int index,E e) {
         if(index < 0 || index >= size) {
             throw new IllegalArgumentException("get fail");
