@@ -13,6 +13,14 @@ public class Array<E> {
         size = 0;
     }
 
+    public Array(E[] arr) {
+        data = (E[])new Object[arr.length];
+        for(int i = 0;i < arr.length;i++) {
+            data[i] = arr[i];
+        }
+        size = arr.length;
+    }
+
     public Array() {
         this(10);
     }
@@ -74,7 +82,7 @@ public class Array<E> {
         return get(0);
     }
 
-    void set(int index,E e) {
+    public void set(int index,E e) {
         if(index < 0 || index >= size) {
             throw new IllegalArgumentException("get fail");
         }
@@ -128,6 +136,16 @@ public class Array<E> {
         int index = find(e);
         if(index != -1)
             remove(index);
+    }
+
+    public void swap(int i,int j) {
+        if(i < 0 || i >= size || j < 0 ||j >= size) {
+            throw new IllegalArgumentException("Index error");
+        }
+
+        E t = data[i];
+        data[i] = data[j];
+        data[j] = t;
     }
 
     public String toString() {
